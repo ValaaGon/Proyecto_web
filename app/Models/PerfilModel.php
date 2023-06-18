@@ -10,8 +10,8 @@ class PerfilModel extends Model
     use HasFactory;
 
     protected $table = 'Perfiles';
-    protected $primaryKey = 'user';
-    protected $fillable = ['password','nombre','apellido'];
+    protected $primaryKey = 'id';
+    protected $fillable = 'nombre';
 
     public $incrementing = false;
 

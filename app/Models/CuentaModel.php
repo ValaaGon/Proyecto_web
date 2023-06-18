@@ -3,14 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-class CuentaModel extends Model
+
+class CuentaModel extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens, Notifiable;
     protected $table = 'Cuentas';
-    protected $primaryKey = 'id';
-    protected $fillable = 'nombre';
+    protected $primaryKey = 'user';
+    protected $fillable = ['user', 'password', 'nombre', 'apellido'];
+    protected $hiddeen = 'password';
+    protected $attributes = [
+        'perfil_id' => 2, 
+    ];
 
 
 
@@ -22,6 +29,11 @@ class CuentaModel extends Model
 
     public function imagenes():HasMany{
         return $this->hasMany(Imagen::class, 'cuenta_id');
+    }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+
     }
 
 
