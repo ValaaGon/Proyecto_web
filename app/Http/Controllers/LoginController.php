@@ -23,7 +23,7 @@ class LoginController extends Controller
         $credentials = $request->only('user', 'password');
 
         if (!Auth::attempt($credentials)) {
-            return redirect()->to('/login')->withErrors('auth.failed');
+            return redirect()->to('/login')->withErrors('Nombre de usuario o contraseña incorrrectas');
         }
 
         return $this->authenticated($request, Auth::user());

@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
+@section('contenido-principal')
 <body>
-    <h1>Home</h1>
+    @extends('loyouts.app-master')
     @auth
-    <p>Bienvenido {{ auth()->user()->user }}, estás autenticado</p>
-    <p>
-        <a href="/logout">Cerrar sesion</a>
-    </p>
-    @endauth
+    <div class="container p-5">
+        <p>Bienvenido {{ auth()->user()->user }}, estás autenticado</p>
+        @endauth
+    
+        @guest
+            para subir fotos inicia sesion <a href="/login">Registrarse</a>
+        @endguest
+    
 
-    @guest
-        para subir fotos inicia sesion <a href="/login">Registrarse</a>
-    @endguest
-
+    </div>
+   
     
 </body>
-</html>
+@endsection
