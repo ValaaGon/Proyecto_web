@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ImagenModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
@@ -18,7 +19,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class CuentaModel extends Authenticatable
 {
     
-
+    use SoftDeletes;
+    protected $dates= ['deleted_at']; 
 
    
 

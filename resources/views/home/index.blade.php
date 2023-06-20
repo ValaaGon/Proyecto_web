@@ -9,10 +9,6 @@
         @guest
             para subir fotos inicia sesion <a href="/login">Registrarse</a>
         @endguest
-    
-
     </div>
-   
-    
 </body>
 @endsection

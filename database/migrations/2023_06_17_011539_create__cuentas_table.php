@@ -20,6 +20,7 @@ return new class extends Migration
 
             $table->foreign('perfil_id')->references('id')->on('Perfiles');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

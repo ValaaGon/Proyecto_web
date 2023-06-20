@@ -44,15 +44,20 @@
                                             account_circle
                                         </span>
                                     </button>
+
+                                    <form action="{{ route('cuentas.destroy', $cuenta) }}" method="POST">
+                                       
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn.info">
                                             <span class="material-symbols-outlined material-icons">
                                                 delete
                                             </span>
-                                        </button>
-                                    <button class="btn btn-secondary">
-                                        <span class="material-symbols-outlined">
-                                            edit
-                                        </span>
-                                    </button>
+    
+                                        </button>    
+
+                                    </form>
+                                  
 
                                 </div>
                                

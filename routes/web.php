@@ -34,8 +34,9 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/perfiles', [AdmiController::class, 'indexPerfiles']);
-Route::get('/cuentas', [AdmiController::class, 'showCuentas']);
-//Route::delete('/cuentas/{cuenta}',[AdmiController::class,'destroy']);
+Route::get('/cuentas', [AdmiController::class, 'showCuentas'])->name('cuentas.mostrar');
+Route::delete('/cuentas/{cuenta}',[AdmiController::class,'destroy'])->name('cuentas.destroy');
+
 
 Route::get('/subfot',[ArtiController::class,'show']);
 Route::post('/subir-imagen', [ArtiController::class, 'subirImagen'])->name('subir-imagen');
