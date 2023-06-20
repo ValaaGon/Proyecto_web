@@ -5,6 +5,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\AdmiController;
+use App\Http\Controllers\ArtiController;
+
 
 
 /*
@@ -18,9 +21,7 @@ use App\Http\Controllers\LogoutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/register',[RegisterController::class,'show'] );
 Route::post('/register',[RegisterController::class,'register'] );
@@ -32,5 +33,13 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/logout', [LogoutController::class, 'logout']);
 
+Route::get('/perfiles', [AdmiController::class, 'indexPerfiles']);
+Route::get('/cuentas', [AdmiController::class, 'showCuentas']);
+//Route::delete('/cuentas/{cuenta}',[AdmiController::class,'destroy']);
+
+Route::get('/subfot',[ArtiController::class,'show']);
+Route::post('/subir-imagen', [ArtiController::class, 'subirImagen'])->name('subir-imagen');
+Route::get('/galeria',[ArtiController::class,'verFotos']);
+Route::get('/gestionp',[ArtiController::class,'GestionP']);
 
 

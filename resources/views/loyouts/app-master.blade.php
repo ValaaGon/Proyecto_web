@@ -18,24 +18,33 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
+                    @if (auth()->check() && auth()->user()->perfil_id == 1)
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion de perfiles</a>
+                        <a class="nav-link" href="/cuentas">Gestion de cuentas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tipos de perfiles</a>
+                        <a class="nav-link" href="../perfiles">Perfiles</a>
                     </li>
+                    
+                    @endif
+                    @if (auth()->check() && auth()->user()->perfil_id == 2)
+                    <li class="nav-item">
+                        <a class="nav-link" href="/subfot">Subir fotos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/gestionp">Gestion de perfil</a>
+                    </li>
+                    @endif
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galeria de fotos</a>
+                        <a class="nav-link" href="/galeria">Galeria</a>
                     </li>
                 </ul>
                 @auth
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    
-                                        {{ auth()->user()->user }}
-                                    
+                                        {{ auth()->user()->user}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>

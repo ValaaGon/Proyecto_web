@@ -24,8 +24,8 @@ class RegisterRequest extends FormRequest
         return [
             'user' => 'required|string|min:2|max:20|unique:cuentas,user',
             'password' => 'bail|required|string|min:6|max:100',
-            'nombre' => 'required|string|min:2|max:20',
-            'apellido' => 'required|string|min:2|max:20',
+            'nombre' => 'required|alpha|min:2|max:20',
+            'apellido' => 'required|alpha|min:2|max:20',
         ];
     }
 
@@ -40,9 +40,11 @@ class RegisterRequest extends FormRequest
             'nombre.required' => 'Indique nombre',
             'nombre.min' => 'El nombre debe tener entre 2 y 20 caracteres',
             'nombre.max' => 'El nombre debe tener entre 2 y 20 caracteres',
-            'apellido.required' => 'Indique nombre',
+            'nombre.alpha'=>'Ingrese un nombre valido',
+            'apellido.required' => 'Indique apellido',
             'apellido.min' => 'El apellido debe tener entre 2 y 20 caracteres',
             'apellido.max' => 'El apellido debe tener entre 2 y 20 caracteres',
+            'apellido.alpha'=>'Ingrese un apellido valido',
             'password.required' => 'Indique contraseña del usuario',
             'password.min' => 'La contraseña debe tener entre 6 y 20 caracteres',
             'password.max' => 'La contraseña debe tener entre 6 y 20 caracteres',

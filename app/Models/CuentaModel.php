@@ -6,10 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\ImagenModel;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+
+
+
 
 
 class CuentaModel extends Authenticatable
 {
+    
+
+
+   
+
     use HasFactory, HasApiTokens, Notifiable;
     protected $table = 'Cuentas';
     protected $primaryKey = 'user';
@@ -23,12 +35,12 @@ class CuentaModel extends Authenticatable
 
     public $incrementing = false;
 
-    public function perfiles():HasMany{
+    public function perfiles():hasMany{
         return $this->belongsTo(Perfil::class, 'perfil_id');
     }
 
-    public function imagenes():HasMany{
-        return $this->hasMany(Imagen::class, 'cuenta_id');
+    public function imagenes():hasMany{
+        return $this->hasMany(ImagenModel::class, 'cuenta_user');
     }
 
     public function setPasswordAttribute($value){

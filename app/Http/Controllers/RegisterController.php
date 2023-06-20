@@ -9,11 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-    public function show(){
-        if(Auth::check()){
-            return redirect('/home');
+    public function show()
+    {
+        if (Auth::check()) {
+            $perfilId = Auth::user()->perfil_id;
 
+            if ($perfilId == 2) {
+                return redirect('/home');
+            }
         }
+
         return view('auth.register');
     }
 

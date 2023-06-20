@@ -14,13 +14,13 @@
                 <div class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="imagenes/img1.png" alt="" width="800rem" height="600rem">
+                            <img src="imagenes/img1.jpg" alt="" width="900rem" height="600rem">
                         </div>
                         <div class="carousel-item">
-                            <img src="imagenes/img2.png" alt="" width="800rem" height="600rem">
+                            <img src="imagenes/img2.jpg" alt="" width="900rem" height="600rem">
                         </div>
                         <div class="carousel-item">
-                            <img src="imagenes/img4.png" alt="" width="800rem" height="600rem">
+                            <img src="imagenes/img3.jpg" alt="" width="900rem" height="600rem">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target=".carousel" data-bs-slide="prev">

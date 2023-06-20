@@ -12,7 +12,7 @@ class PerfilesSeeder extends Seeder
     public function run(): void
     {
         $perfiles = [
-            ['nombre' => 'Admi'],
+            ['nombre' => 'Administador'],
             ['nombre' => 'Artista'],
         ];
 

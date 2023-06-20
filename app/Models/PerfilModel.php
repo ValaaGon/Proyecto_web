@@ -11,7 +11,8 @@ class PerfilModel extends Model
 
     protected $table = 'Perfiles';
     protected $primaryKey = 'id';
-    protected $fillable = 'nombre';
+    protected $fillable = ['nombre'];
+
 
     public $incrementing = false;
 

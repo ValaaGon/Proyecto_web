@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class CuentasSeeder extends Seeder
 {
@@ -17,29 +19,32 @@ class CuentasSeeder extends Seeder
         DB::table('Cuentas')->insert([
             [
                 'user' => 'Administrador',
-                'password' => 'soyadmi123',
+                'password' => Hash::make('soyadmi123'),
                 'nombre' => 'Moussa',
                 'apellido' => 'Rus',
                 'perfil_id' => 1,
                 
             ],
-           
+
             [
                 'user' => 'Artista1',
-                'password' => 'soyartista123',
-                'nombre' => 'Eneko',
-                'apellido' => 'Ferre',
+                'password' => Hash::make('soyartista123'),
+                'nombre' => 'Camila',
+                'apellido' => 'Manrriquez',
                 'perfil_id' => 2,
                 
             ],
+
+
             [
                 'user' => 'Artista2',
-                'password' => 'soyartista456',
-                'nombre' => 'Sabrina',
-                'apellido' => 'Dominguez',
+                'password' => Hash::make('soyartista456'),
+                'nombre' => 'Abdellah',
+                'apellido' => 'Jover',
                 'perfil_id' => 2,
-               
+                
             ],
+           
         ]);
     }
 }
