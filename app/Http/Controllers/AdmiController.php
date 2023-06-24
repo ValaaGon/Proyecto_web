@@ -29,7 +29,7 @@ class AdmiController extends Controller
             return redirect()->route('cuentas.mostrar')->with('error', 'No se puede eliminar al administrador');
         }
         $cuenta->delete();
-        return redirect('cuentas.mostrar');
+        return redirect()->route('cuentas.mostrar');
     }
 
     public function edit(CuentaModel $cuenta){

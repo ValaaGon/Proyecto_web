@@ -38,7 +38,7 @@
                             <td>{{ $cuenta->nombre }}</td>
                             <td>{{ $cuenta->apellido }}</td>
                             <td>
-                                <div class="button-group">
+                                <div class="btn-group">
                                     <button class="btn btn-primary">
                                         <span class="material-symbols-outlined material-icons">
                                             account_circle
@@ -49,7 +49,7 @@
                                        
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn.info">
+                                        <button class="btn btn-info">
                                             <span class="material-symbols-outlined material-icons">
                                                 delete
                                             </span>
