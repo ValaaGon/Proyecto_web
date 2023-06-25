@@ -38,34 +38,55 @@
                             <td>{{ $cuenta->nombre }}</td>
                             <td>{{ $cuenta->apellido }}</td>
                             <td>
+
+                        <div class="modal fade" id="borrarModal{{$cuenta->user}}" tabindex="-1" aria-labelledby="borrarModalLabel{{$cuenta->user}}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="borrarModalLabel{{$cuenta->user}}">Confirmación de Borrado</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form method="POST" action="{{ route('cuentas.destroy', $cuenta) }}">
+                                        @method('delete')
+                                        @csrf
+                                        @if ($cuenta->perfil_id == 1)
+                                        <div class="moda-body">
+                                           <span class="text-danger">No se puede borrar una cuenta de administrador >:(</span> 
+                                        </div>
+                                        @endif
+                                        @if($cuenta->perfil_id == 2)
+                                        <div class="modal-body">
+                                            <span class="text-dark">¿Estas seguro que quieres borrar al usuario</span> <span class="text-danger fw-bold">{{$cuenta->user}}</span> <span class="text-dark">?</span>
+                                        </div>
+                                        @endif
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-danger">Borrar Cuentar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                                 <div class="btn-group">
                                     <button class="btn btn-primary">
-                                        <span class="material-symbols-outlined material-icons">
-                                            account_circle
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                            </span>
                                         </span>
                                     </button>
-
-                                    <form action="{{ route('cuentas.destroy', $cuenta) }}" method="POST">
-                                       
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-info">
-                                            <span class="material-symbols-outlined material-icons">
-                                                delete
-                                            </span>
-    
-                                        </button>    
-
-                                    </form>
-                                  
-
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarModal{{$cuenta->user}}">
+                                                <span class="material-symbols-outlined material-icons">delete</span>
+                                            </button>
                                 </div>
                                
                             </td>
-                        </tr>
+                        </tr><script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
                         @endforeach
                     </tbody>
                 </table>
+                
+                
 
             </div>
             

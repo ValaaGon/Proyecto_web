@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('build/assets/app-aff89d3f.css') }}">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/vendor/bootstrap.min.css">
+    
 
     <title></title>
 </head>
@@ -63,7 +64,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="public/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="{{ asset('build/assets/app-0d91dc04.js') }}"></script>
 </body>
 </html>
