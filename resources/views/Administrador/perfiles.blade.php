@@ -37,6 +37,3 @@
 @endsection
 @endif
 
-@guest
-No tienes permisos para ingresar aqui >:( <a href="/login">Registrarse</a>
-@endguest

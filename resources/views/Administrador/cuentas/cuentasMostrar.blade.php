@@ -69,12 +69,6 @@
                         </div>
 
                                 <div class="btn-group">
-                                    <button class="btn btn-primary">
-                                        <span class="material-symbols-outlined">
-                                            edit
-                                            </span>
-                                        </span>
-                                    </button>
                                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarModal{{$cuenta->user}}">
                                                 <span class="material-symbols-outlined material-icons">delete</span>
                                             </button>
@@ -91,9 +85,7 @@
             </div>
             
     
-            @guest
-            No tienes los permisos necesarios <a href="/login">Registrarse</a>
-            @endguest
+           
     
         </div>
     </body>

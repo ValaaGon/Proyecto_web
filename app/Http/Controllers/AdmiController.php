@@ -9,18 +9,29 @@ use Illuminate\Http\Request;
 
 class AdmiController extends Controller
 {
-    public function indexPerfiles(){
+    public function indexPerfiles()
+{
+    if (auth()->check() && auth()->user()->perfil_id == 1) {
         $perfiles = PerfilModel::all();
         return view('Administrador.perfiles', compact('perfiles'));
+    } else {
+        return redirect('/login');
     }
+}
+
 
    
 
-    public function showCuentas(){
-        $cuentas = CuentaModel::all();
-        return view('Administrador.cuentas.cuentasMostrar', compact('cuentas'));
-
+    public function showCuentas()
+    {
+        if (auth()->check() && auth()->user()->perfil_id == 1) {
+            $cuentas = CuentaModel::all();
+            return view('Administrador.cuentas.cuentasMostrar', compact('cuentas'));
+        } else {
+            return redirect('/login');
+        }
     }
+    
 
 
     public function destroy(CuentaModel $cuenta){

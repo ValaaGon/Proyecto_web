@@ -9,13 +9,25 @@
 
     <div class="row">
         @foreach ($imagenes as $imagen)
+        @if ($imagen->cuenta_user == Auth::user()->user)
         <div class="col-md-4">
-            <img src="{{ asset('../storage/..' .'/'. $imagen->archivo) }}" alt="img">
-            <h4>{{ $imagen->titulo }}</h4>
-            <h4>{{ $imagen->archivo }}</h4>
-
+            <div class="card">
+                <div class="card-header">
+                    <h4>{{ $imagen->titulo }}</h4>
+                </div>
+                <div class="card-body">
+                    <img src="{{ asset('storage/ImagSubida/' . $imagen->archivo) }}" alt="img" class="card-img-top">
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-danger">Borrar</button>
+                    <button class="btn btn-primary">Editar</button>
+                </div>
+            </div>
         </div>
-        @endforeach
+        @endif
+    @endforeach
+    
+    
     </div>
 </div>
 

@@ -22,10 +22,16 @@ class ArtiController extends Controller
             'titulo' => 'required|string|max:20',
         ], $this->messages());
 
-        $imagen = $request->file('file');
-        $nombreArchivo = $imagen->getClientOriginalName();
 
-        Storage::putFileAs('public/imagenes', $imagen, $nombreArchivo);
+        $file = $request->file('file');
+        $nombreArchivo = $file->getClientOriginalName();
+        $extencion = $file->getClientOriginalExtension();
+        $ruta = $file->store('ImagSubida', ['disk' => 'public']);
+
+        
+        $data['file'] = $ruta;
+
+        
 
         $imagenModel = new ImagenModel();
         $imagenModel->titulo = $request->input('titulo');
@@ -35,7 +41,7 @@ class ArtiController extends Controller
         $imagenModel->motivo_ban = null;
         $imagenModel->save();
 
-        return redirect()->back()->with('success', 'Imagen subida correctamente');
+        return redirect('/gestionp');
     }
 
     public function messages(): array
@@ -49,11 +55,12 @@ class ArtiController extends Controller
     }
 
 
-    public function verFotos(){
-        return view('Artista.Galeria');
-
+    public function verFotos()
+    {
+        $imagenes = ImagenModel::all();
+        return view('Artista.Galeria', compact('imagenes'));
     }
-
+    
     public function GestionP(){
         $user = auth()->user();
 
