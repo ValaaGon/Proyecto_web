@@ -42,5 +42,7 @@ Route::get('/subfot',[ArtiController::class,'show']);
 Route::post('/subir-imagen', [ArtiController::class, 'subirImagen'])->name('subir-imagen');
 Route::get('/galeria',[ArtiController::class,'verFotos']);
 Route::get('/gestionp',[ArtiController::class,'GestionP']);
+Route::delete('/gestionp/{imagen}', [ArtiController::class, 'borrarFoto'])->name('fotos.destroy');
+
 
 

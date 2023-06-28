@@ -15,6 +15,9 @@
                     </div>
                     <div class="card-body">
                         <img src="{{ asset('storage/ImagSubida/' . $imagen->archivo) }}" alt="img" class="card-img-top">
+                        
+                       <label for="">Subida por : {{ $imagen->cuenta_user }}</label>
+
                     </div>
                 </div>
             </div>

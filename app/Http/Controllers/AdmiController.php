@@ -43,21 +43,8 @@ class AdmiController extends Controller
         return redirect()->route('cuentas.mostrar');
     }
 
-    public function edit(CuentaModel $cuenta){
-        return redirect()->route('cuentas.edit', ['cuenta' => $cuenta]);
-    }
     
 
-    public function update(Request $request, CuentaModel $cuenta)
-    {
-        $cuenta->nombre = $request->input('nombre');
-        $cuenta->apellido = $request->input('apellido');
-        $cuenta->user = $request->input('user');
-
-
-        $cuenta->save();
-
-        return redirect()->route('cuentas.mostrar')->with('success', 'Usuario actualizado exitosamente');
-    }
+    
     
 }

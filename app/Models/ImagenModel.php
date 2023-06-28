@@ -17,7 +17,7 @@ class ImagenModel extends Model
 
     public function cuentas()
     {
-        return $this->belongsTo(Cuenta::class, 'cuenta_id');
+        return $this->belongsTo(Cuenta::class, 'cuenta_user');
     }
 
 

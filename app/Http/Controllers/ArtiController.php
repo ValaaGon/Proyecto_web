@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ImagenModel;
+use App\Models\CuentaModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -58,6 +59,7 @@ class ArtiController extends Controller
     public function verFotos()
     {
         $imagenes = ImagenModel::all();
+        
         return view('Artista.Galeria', compact('imagenes'));
     }
     
@@ -68,5 +70,16 @@ class ArtiController extends Controller
     $imagenes = $user->imagenes;
 
     return view('Artista.Gestion', ['imagenes' => $imagenes]);
+    }
+
+    public function borrarFoto($imagenId) {
+        $foto = ImagenModel::find($imagenId);
+    
+        if ($foto) {
+            Storage::delete('storage/ImagSubida/' . $foto->archivo);
+            $foto->delete();
+        }
+    
+        return back();
     }
 }
