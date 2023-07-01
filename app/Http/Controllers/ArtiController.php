@@ -27,7 +27,7 @@ class ArtiController extends Controller
         $file = $request->file('file');
         $nombreArchivo = $file->getClientOriginalName();
         $extencion = $file->getClientOriginalExtension();
-        $ruta = $file->store('ImagSubida', ['disk' => 'public']);
+        $ruta = $file->store('ImagSubida', ['disk' => 'images']);
 
         
         $data['file'] = $ruta;
@@ -82,4 +82,6 @@ class ArtiController extends Controller
     
         return back();
     }
+
+    
 }

@@ -37,12 +37,19 @@ Route::get('/perfiles', [AdmiController::class, 'indexPerfiles']);
 Route::get('/cuentas', [AdmiController::class, 'showCuentas'])->name('cuentas.mostrar');
 Route::delete('/cuentas/{cuenta}',[AdmiController::class,'destroy'])->name('cuentas.destroy');
 
+Route::get('/editar-usuario/{user}', [AdmiController::class, 'edit'])->name('usuario.editar');
+Route::put('/actualizar-usuario/{user}', [AdmiController::class, 'update'])->name('usuario.actualizar');
+
+
+
 
 Route::get('/subfot',[ArtiController::class,'show']);
 Route::post('/subir-imagen', [ArtiController::class, 'subirImagen'])->name('subir-imagen');
 Route::get('/galeria',[ArtiController::class,'verFotos']);
 Route::get('/gestionp',[ArtiController::class,'GestionP']);
 Route::delete('/gestionp/{imagen}', [ArtiController::class, 'borrarFoto'])->name('fotos.destroy');
+
+
 
 
 
