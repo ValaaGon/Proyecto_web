@@ -72,7 +72,7 @@
                                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarModal{{$cuenta->user}}">
                                                 <span class="material-symbols-outlined material-icons">delete</span>
                                             </button>
-                                            <button class="btn btn-primary" onclick="window.location.href='{{ route('usuario.editar', $cuenta->user) }}'">
+                                            <button class="btn btn-primary" href='{{ route('usuario.editar', $cuenta->user) }}'">
                                                 <span class="material-symbols-outlined">
                                                     edit
                                                     </span>
