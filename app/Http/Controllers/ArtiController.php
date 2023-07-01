@@ -18,21 +18,13 @@ class ArtiController extends Controller
 
     public function subirImagen(Request $request)
     {
-        $request->validate([
-            'file' => 'required|image',
-            'titulo' => 'required|string|max:20',
-        ], $this->messages());
-
 
         $file = $request->file('file');
         $nombreArchivo = $file->getClientOriginalName();
         $extencion = $file->getClientOriginalExtension();
         $ruta = $file->store('ImagSubida', ['disk' => 'public']);
 
-        
         $data['file'] = $ruta;
-
-        
 
         $imagenModel = new ImagenModel();
         $imagenModel->titulo = $request->input('titulo');

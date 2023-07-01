@@ -32,8 +32,6 @@ class AdmiController extends Controller
         }
     }
     
-
-
     public function destroy(CuentaModel $cuenta){
 
         if ($cuenta->perfil_id == 1) {
