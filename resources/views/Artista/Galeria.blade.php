@@ -6,6 +6,7 @@
         <p>Bienvenid@ {{ auth()->user()->nombre }} {{ auth()->user()->apellido }}</p>
         @endauth
         <h1 class="fw-bold">Galeria de fotos</h1>
+        
         <div class="row">
             @foreach ($imagenes as $imagen)
             <div class="col-md-4">

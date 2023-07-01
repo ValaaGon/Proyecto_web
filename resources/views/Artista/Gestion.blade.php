@@ -48,7 +48,8 @@
                         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#borrarModal{{$imagen->id}}">
                             <span class="material-symbols-outlined material-icons">Eliminar</span>
                         </button>
-                        <button class="btn btn-primary">Editar</button>
+                        <button href="#" class="btn btn-primary">Editar</button>
+                        
                     </div>
                 </div>
                 
